@@ -1,2 +1,2 @@
 # readyOrNot
-A real world hide and seek game
+A mobile platform hide and seek application 
