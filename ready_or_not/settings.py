@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
+    'sessions',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +77,9 @@ WSGI_APPLICATION = 'ready_or_not.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'ready_or_not_db',
+        'USER': 'postgres'
     }
 }
 
