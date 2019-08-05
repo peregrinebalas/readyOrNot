@@ -27,6 +27,7 @@ export default class App extends React.Component {
           email: result.user.email,
           photoUrl: result.user.photoUrl
         })
+        console.log(result)
       } else {
         console.log("cancelled")
       }
@@ -34,14 +35,24 @@ export default class App extends React.Component {
       console.log("error", error)
     }
   }
+
+  signOut = () => {
+    this.setState({
+      signedIn: false,
+      name: "",
+      email: "",
+      photoUrl: ""
+    })
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text>ReadyOrNot</Text>
         {this.state.signedIn ? (
-          <LoggedInPage name={this.state.name} email={this.state.email} photoUrl={this.state.photoUrl} />
+          <LoggedInPage name={this.state.name} email={this.state.email} photoUrl={this.state.photoUrl} signOut={this.signOut}/>
         ) : (
-          <LoginPage signIn={this.signIn} />
+          <LoginPage signIn={this.signIn}/>
         )}
       </View>
     );
@@ -63,6 +74,7 @@ const LoggedInPage = props => {
       <Text style={styles.header}>Welcome: {props.name}</Text>
       <Text style={styles.header}>Contact @ {props.email}</Text>
       <Image style={styles.image} source={{ uri: props.photoUrl }} />
+      <Button title="Sign Out" onPress={() => props.signOut()} />
     </View>
   )
 }
