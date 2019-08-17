@@ -1,1 +1,12 @@
-/frontend/node_modules/
+/frontend/ReadyOrNot/node_modules/**/*
+/frontend/ReadyOrNot/.env
+/frontend/ReadyOrNot/.expo/*
+/frontend/ReadyOrNot/npm-debug.*
+/frontend/ReadyOrNot/*.jks
+/frontend/ReadyOrNot/*.p8
+/frontend/ReadyOrNot/*.p12
+/frontend/ReadyOrNot/*.key
+/frontend/ReadyOrNot/*.mobileprovision
+/frontend/ReadyOrNot/*.orig.*
+/frontend/ReadyOrNot/web-build/
+/frontend/ReadyOrNot/web-report/
