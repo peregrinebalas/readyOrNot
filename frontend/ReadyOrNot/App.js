@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Button } from 'react-native';
+import Constants from 'expo-constants';
 import * as Google from "expo-google-app-auth";
 
 export default class App extends React.Component {
@@ -15,7 +16,7 @@ export default class App extends React.Component {
   signIn = async () => {
     try {
       const result = await Google.logInAsync({
-        androidClientId: '1014185678010-avt0reun737dld6aa8ue60onig85in9t.apps.googleusercontent.com',
+        androidClientId: '',
         //iosClientId: IOS_CLIENT_ID,
         scopes: ["profile", "email"]
       })
@@ -28,6 +29,8 @@ export default class App extends React.Component {
           photoUrl: result.user.photoUrl
         })
         console.log(result)
+        // fetch('localhost:3000/api/v1/users')
+        // console.log(Constants)
       } else {
         console.log("cancelled")
       }
