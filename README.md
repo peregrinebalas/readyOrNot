@@ -10,7 +10,7 @@ A mobile platform hide and seek application
 
 ## backend - Django
 ### Versions
-* Python: 3.7.3
-* django-admin: 2.2
+* Ruby 2.4.1
+* Rails 5.2.3
 * psql: 11.3
-* pipenv: 2018.11.26
+* pipenv: 2.0.1
