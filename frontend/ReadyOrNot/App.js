@@ -16,7 +16,7 @@ export default class App extends React.Component {
   signIn = async () => {
     try {
       const result = await Google.logInAsync({
-        androidClientId: '',
+        androidClientId: '1014185678010-avt0reun737dld6aa8ue60onig85in9t.apps.googleusercontent.com',
         //iosClientId: IOS_CLIENT_ID,
         scopes: ["profile", "email"]
       })
