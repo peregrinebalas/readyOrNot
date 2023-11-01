@@ -13,6 +13,16 @@ describe Game, type: :model do
     end  
 
     describe 'instance methods' do
+        describe '#active?' do
+            it 'returns false if not started' do
+            end
+
+            it 'returns true if started and not completed' do
+            end
+
+            it 'returns false if completed' do
+            end
+        end
     end
 
     describe 'class methods' do
