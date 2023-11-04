@@ -7,6 +7,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@unimodules/core": "^7.1.2",
     "expo": "^49.0.16",
     "expo-google-app-auth": "^6.0.0",
     "react": "18.2.0",
