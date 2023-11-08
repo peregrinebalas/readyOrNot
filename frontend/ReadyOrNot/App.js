@@ -119,8 +119,8 @@ export default function App() {
   const [message, setMessage] = React.useState();
 
   const [request, response, promptAsync] = Google.useAuthRequest({
-    androidClientId: "694235095257-fkbf1u81sm5ii76om74j5b7h8u4v2m7a.apps.googleusercontent.com",
-    iosClientId: "694235095257-qnub27n3o6s0e3lo1sneio03o6ka5k9m.apps.googleusercontent.com",
+    androidClientId: '1014185678010-avt0reun737dld6aa8ue60onig85in9t.apps.googleusercontent.com',
+    iosClientId: IOS_CLIENT_ID,
     expoClientId: "694235095257-7t7h7mv877d2jfu7r508ct1egmesbqdm.apps.googleusercontent.com"
   });
 
