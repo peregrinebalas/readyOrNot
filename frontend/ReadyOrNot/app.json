@@ -2,6 +2,7 @@
   "expo": {
     "name": "ReadyOrNot",
     "slug": "ready-or-not",
+    "scheme": "mycoolredirect",
     "privacy": "public",
     "sdkVersion": "49.0.0",
     "platforms": [
@@ -24,7 +25,19 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
-    }
+      "supportsTablet": true,
+      "bundleIdentifier": "com.nosuchcolor.readyornot",
+      "infoPlist": {
+        "CFBundleURLTypes": [
+          {
+            "CFBundleURLSchemes": ["com.googleusercontent.apps.1014185678010-n27tuaikhclnke2vojbn7fum81qq3vh4"]
+          }
+        ]
+      }
+    },
+    "android": {
+      "package": "com.nosuchcolor.readyornot"
+    },
+    "plugins": ["@react-native-google-signin/google-signin"]
   }
 }
