@@ -3,6 +3,8 @@ import {
     GoogleSigninButton,
     statusCodes,
   } from '@react-native-google-signin/google-signin';
+import { Text } from 'react-native';
+
 
   export default function Auth() {
     GoogleSignin.configure({
@@ -19,6 +21,8 @@ import {
       });
 
       return (
+        <div>
+        <Text>Sign in with Google</Text>
         <GoogleSigninButton
             size={GoogleSigninButton.Size.Wide}
             color={GoogleSigninButton.Color.Dark}
@@ -42,5 +46,6 @@ import {
             }}
             // disabled={this.state.isSigninInProgress}
         />
+        </div>
       );
   }

@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View, Text, Image, Button } from 'react-native';
-import * as Google from 'expo-auth-session/providers/google';
 import * as WebBrowser from 'expo-web-browser';
+import Auth from "./components/Auth"
+import Profile from "./components/Profile"
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -17,45 +18,35 @@ export default function App() {
   //   expoClientId: "1014185678010-rd6p4glpbh0hb9vmeur34e48p78cdbiu.apps.googleusercontent.com"
   // });
 
-  React.useEffect(() => {
-    setMessage(JSON.stringify(response));
-    if (response?.type === "success") {
-      setAccessToken(response.authentication.accessToken);
-    }
-  }, [response]);
+  // React.useEffect(() => {
+  //   setMessage(JSON.stringify(response));
+  //   if (response?.type === "success") {
+  //     setAccessToken(response.authentication.accessToken);
+  //   }
+  // }, [response]);
 
-  async function getUserData() {
-    let userInfoResponse = await fetch("https://www.googleapis.com/userinfo/v2/me", {
-      headers: { Authorization: `Bearer ${accessToken}`}
-    });
+  // async function getUserData() {
+  //   let userInfoResponse = await fetch("https://www.googleapis.com/userinfo/v2/me", {
+  //     headers: { Authorization: `Bearer ${accessToken}`}
+  //   });
 
-    userInfoResponse.json().then(data => {
-      setUserInfo(data);
-    });
-  }
-
-  function showUserInfo() {
-    if (userInfo) {
-      return (
-        <View style={styles.userInfo}>
-          <Image source={{uri: userInfo.picture}} style={styles.profilePic} />
-          <Text>Welcome {userInfo.name}</Text>
-          <Text>{userInfo.email}</Text>
-        </View>
-      );
-    }
-  }
+  //   userInfoResponse.json().then(data => {
+  //     setUserInfo(data);
+  //   });
+  // }
 
   return (
-    <View style={styles.container}>
-      {showUserInfo()}
-      <Button 
-        title={accessToken ? "Get User Data" : "Login"}
-        onPress={accessToken ? getUserData : () => { promptAsync({useProxy: false, showInRecents: true}) }}
-      />
-      <StatusBar style="auto" />
+    <div>
+    <View style={ userInfo ? styles.userInfo : styles.container }>
+    { userInfo
+      ? <Profile userInfo setUserInfo></Profile>
+      : <Auth/>
+      
+    }
     </View>
-  );
+    <StatusBar style="auto" />
+    </div>
+    );
 }
 
 const styles = StyleSheet.create({
