@@ -11,11 +11,11 @@ export default function App() {
   const [userInfo, setUserInfo] = React.useState();
   const [message, setMessage] = React.useState();
 
-  const [request, response, promptAsync] = Google.useAuthRequest({
-    androidClientId: '1014185678010-avt0reun737dld6aa8ue60onig85in9t.apps.googleusercontent.com',
-    iosClientId: '1014185678010-n27tuaikhclnke2vojbn7fum81qq3vh4.apps.googleusercontent.com',
-    expoClientId: "1014185678010-rd6p4glpbh0hb9vmeur34e48p78cdbiu.apps.googleusercontent.com"
-  });
+  // const [request, response, promptAsync] = Google.useAuthRequest({
+  //   androidClientId: '1014185678010-avt0reun737dld6aa8ue60onig85in9t.apps.googleusercontent.com',
+  //   iosClientId: '1014185678010-n27tuaikhclnke2vojbn7fum81qq3vh4.apps.googleusercontent.com',
+  //   expoClientId: "1014185678010-rd6p4glpbh0hb9vmeur34e48p78cdbiu.apps.googleusercontent.com"
+  // });
 
   React.useEffect(() => {
     setMessage(JSON.stringify(response));
