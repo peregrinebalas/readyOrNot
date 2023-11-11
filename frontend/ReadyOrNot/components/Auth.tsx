@@ -28,7 +28,7 @@ import {
                 const userInfo = await GoogleSignin.signIn();
                 // setState({ userInfo });
                 console.log(JSON.stringify(userInfo, null, 2))
-              } catch (error) {
+              } catch (error: any) {
                 if (error.code === statusCodes.SIGN_IN_CANCELLED) {
                   // user cancelled the login flow
                 } else if (error.code === statusCodes.IN_PROGRESS) {
