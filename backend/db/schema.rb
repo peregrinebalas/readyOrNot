@@ -10,10 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_01_200807) do
+ActiveRecord::Schema.define(version: 2023_11_01_235342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "games", force: :cascade do |t|
+    t.bigint "user_id"
+    t.boolean "timed", null: false
+    t.integer "default_timer_seconds"
+    t.datetime "started_at"
+    t.datetime "completed_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_games_on_user_id"
+  end
+
+  create_table "players", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "round_id", null: false
+    t.boolean "winner"
+    t.boolean "it"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["round_id"], name: "index_players_on_round_id"
+    t.index ["user_id"], name: "index_players_on_user_id"
+  end
+
+  create_table "rounds", force: :cascade do |t|
+    t.bigint "game_id"
+    t.datetime "started_at"
+    t.datetime "completed_at"
+    t.datetime "ended_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_rounds_on_game_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
@@ -25,4 +57,6 @@ ActiveRecord::Schema.define(version: 2023_11_01_200807) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "players", "rounds"
+  add_foreign_key "players", "users"
 end
