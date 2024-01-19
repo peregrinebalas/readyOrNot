@@ -81,9 +81,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace 'com.anonymous.readyornot'
+    namespace 'com.nosuchcolor.readyornot'
     defaultConfig {
-        applicationId 'com.anonymous.readyornot'
+        applicationId 'com.nosuchcolor.readyornot'
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -39,8 +39,8 @@ export default function App() {
     <div>
     <View style={ userInfo ? styles.userInfo : styles.container }>
     { userInfo
-      ? <Profile userInfo setUserInfo></Profile>
-      : <Auth/>
+      ? <Profile userInfo></Profile>
+      : <Auth setUserInfo></Auth>
       
     }
     </View>
@@ -60,8 +60,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  profilePic: {
-    width: 50,
-    height: 50
-  }
 });

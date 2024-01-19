@@ -2,7 +2,6 @@
   "expo": {
     "name": "ReadyOrNot",
     "slug": "ready-or-not",
-    "scheme": "mycoolredirect",
     "privacy": "public",
     "sdkVersion": "49.0.0",
     "platforms": [
@@ -25,6 +24,7 @@
       "**/*"
     ],
     "ios": {
+      "googleServicesFile": "./GoogleService-Info.plist",
       "supportsTablet": true,
       "bundleIdentifier": "com.nosuchcolor.readyornot",
       "infoPlist": {
@@ -36,6 +36,7 @@
       }
     },
     "android": {
+      "googleServicesFile": "./google-services.json",
       "package": "com.nosuchcolor.readyornot"
     },
     "plugins": ["@react-native-google-signin/google-signin"]

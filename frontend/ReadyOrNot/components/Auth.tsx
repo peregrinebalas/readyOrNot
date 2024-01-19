@@ -6,7 +6,7 @@ import {
 import { Text } from 'react-native';
 
 
-  export default function Auth() {
+  export default function Auth(setUserInfo: any) {
     GoogleSignin.configure({
         scopes: ['https://www.googleapis.com/auth/drive.readonly'], // what API you want to access on behalf of the user, default is email and profile
         webClientId: "1014185678010-rd6p4glpbh0hb9vmeur34e48p78cdbiu.apps.googleusercontent.com", // client ID of type WEB for your server (needed to verify user ID and offline access)
@@ -17,7 +17,7 @@ import { Text } from 'react-native';
         iosClientId: '1014185678010-n27tuaikhclnke2vojbn7fum81qq3vh4.apps.googleusercontent.com', // [iOS] if you want to specify the client ID of type iOS (otherwise, it is taken from GoogleService-Info.plist)
         // googleServicePlistPath: '', // [iOS] if you renamed your GoogleService-Info file, new name here, e.g. GoogleService-Info-Staging
         // openIdRealm: '', // [iOS] The OpenID2 realm of the home web server. This allows Google to include the user's OpenID Identifier in the OpenID Connect ID token.
-        // profileImageSize: 120, // [iOS] The desired height (and width) of the profile image. Defaults to 120px
+        profileImageSize: 120, // [iOS] The desired height (and width) of the profile image. Defaults to 120px
       });
 
       return (
@@ -30,7 +30,7 @@ import { Text } from 'react-native';
               try {
                 await GoogleSignin.hasPlayServices();
                 const userInfo = await GoogleSignin.signIn();
-                // setState({ userInfo });
+                setUserInfo({ userInfo });
                 console.log(JSON.stringify(userInfo, null, 2))
               } catch (error: any) {
                 if (error.code === statusCodes.SIGN_IN_CANCELLED) {

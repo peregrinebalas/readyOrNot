@@ -1,4 +1,4 @@
-package com.anonymous.readyornot;
+package com.nosuchcolor.readyornot;
 
 import android.app.Application;
 import android.content.res.Configuration;
